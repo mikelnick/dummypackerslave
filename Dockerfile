@@ -15,4 +15,8 @@ RUN cd /var && \
 COPY packerpath.sh /etc/profile.d/packerpath.sh
 RUN chmod +x /etc/profile.d/packerpath.sh
 
+RUN echo export PATH=$PATH:/var/packer >> /etc/profile
+
+RUN source /etc/profile
+
 EXPOSE 22
