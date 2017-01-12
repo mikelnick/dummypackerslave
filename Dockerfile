@@ -14,8 +14,8 @@ RUN cd /var/packer && \
 
 RUN chown -R dockerslave /var/packer
 
-USER dockerslave
+RUN echo 'export PATH=/usr/packer:$PATH' >>/home/dockerslave/.profile
+
 ENV PATH /var/packer:$PATH
 
-USER root
 EXPOSE 22
