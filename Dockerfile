@@ -14,6 +14,8 @@ RUN cd /var/packer && \
 
 RUN chown -R dockerslave /var/packer
 
+USER dockerslave
 ENV PATH /var/packer:$PATH
 
+USER root
 EXPOSE 22
