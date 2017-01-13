@@ -14,7 +14,7 @@ RUN cd /var/packer && \
 
 RUN touch /home/dockerslave/.ssh/known_hosts
 
-RUN ssh-keyscan -t rsa github.com >> /home/dockerslave/.ssh/known_hosts
+RUN ssh-keyscan -p 22 github.com/lvtech >> /home/dockerslave/.ssh/known_hosts
 
 RUN echo 'export PATH=/usr/packer:$PATH' >>/home/dockerslave/.profile
 
@@ -25,3 +25,6 @@ RUN echo 'export PATH=/usr/packer:$PATH' >>/etc/environment
 ENV PATH /var/packer:$PATH
 
 EXPOSE 22
+
+USER root
+CMD ["/usr/sbin/sshd", "-D"]
