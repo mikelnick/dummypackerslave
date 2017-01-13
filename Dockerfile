@@ -14,13 +14,8 @@ RUN cd /var/packer && \
 
 RUN chown -R dockerslave /var/packer
 
+RUN echo 'export PATH=/usr/packer:$PATH' >>/home/dockerslave/.profile
 
 ENV PATH /var/packer:$PATH
-
-RUN echo '/usr/packer' >>/home/dockerslave/.profile
-
-RUN su dockerslave && \
-	source /home/dockerslave/.profile
-
 
 EXPOSE 22
