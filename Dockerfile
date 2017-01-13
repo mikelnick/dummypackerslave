@@ -25,7 +25,3 @@ RUN echo 'export PATH=/usr/packer:$PATH' >>/etc/environment
 ENV PATH /var/packer:$PATH
 
 EXPOSE 22
-
-RUN chown -R dockerslave /
-
-USER dockerslave
