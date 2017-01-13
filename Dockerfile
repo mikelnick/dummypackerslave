@@ -18,7 +18,7 @@ RUN echo 'export PATH=/usr/packer:$PATH' >>/home/dockerslave/.profile
 
 RUN echo 'export PATH=/usr/packer:$PATH' >>~/.bash_profile
 
-RUN echo 'export PATH=/usr/packer:$PATH' >>/etc/environmente
+RUN echo 'export PATH=/usr/packer:$PATH' >>/etc/environment
 
 ENV PATH /var/packer:$PATH
 
