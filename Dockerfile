@@ -12,12 +12,10 @@ RUN cd /var/packer && \
     wget https://releases.hashicorp.com/packer/0.12.1/packer_0.12.1_linux_amd64.zip && \
     unzip packer_0.12.1_linux_amd64.zip
 
-RUN chown -R dockerslave /var/packer /etc/ssh
+RUN chown -R dockerslave /var/packer
 
-RUN echo 'export PATH=/usr/packer:$PATH' >>/home/dockerslave/.profile
+RUN echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/packer"' >/etc/environment
 
 ENV PATH /var/packer:$PATH
 
 EXPOSE 22
-
-USER dockerslave
