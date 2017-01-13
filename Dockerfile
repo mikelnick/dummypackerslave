@@ -14,8 +14,13 @@ RUN cd /var/packer && \
 
 RUN chown -R dockerslave /var/packer
 
-RUN echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/packer"' >/etc/environment
 
 ENV PATH /var/packer:$PATH
+
+RUN echo '/usr/packer' >>/home/dockerslave/.profile
+
+RUN su dockerslave && \
+	source /home/dockerslave/.profile
+
 
 EXPOSE 22
