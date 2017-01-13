@@ -19,3 +19,5 @@ RUN echo 'export PATH=/usr/packer:$PATH' >>/home/dockerslave/.profile
 ENV PATH /var/packer:$PATH
 
 EXPOSE 22
+
+USER dockerslave
