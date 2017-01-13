@@ -1,7 +1,11 @@
 FROM ubuntu:16.04
 
 RUN apt-get update && \
-    apt-get -y install wget git unzip openjdk-8-jre openssh-server
+    apt-get -y install wget git unzip openjdk-8-jre openssh-server software-properties-common && \
+    apt-add-repository ppa:ansible/ansible
+
+RUN apt-get update && \
+    apt-get -y install ansible
 
 RUN sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd
 
