@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-RUN mkdir /var/run/sshd /var/packer
+RUN mkdir /var/run/sshd /var/packer /var/dockerslave
 
 RUN useradd -ms /bin/bash dockerslave
 RUN echo "dockerslave:dockerslave" | chpasswd
@@ -12,7 +12,7 @@ RUN cd /var/packer && \
     wget https://releases.hashicorp.com/packer/0.12.1/packer_0.12.1_linux_amd64.zip && \
     unzip packer_0.12.1_linux_amd64.zip
 
-RUN chown -R dockerslave /var
+RUN chown -R dockerslave /var/dockerslave
 
 RUN echo 'export PATH=/usr/packer:$PATH' >>/home/dockerslave/.profile
 
