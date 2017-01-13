@@ -5,12 +5,15 @@ RUN apt-get update && \
 
 RUN sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd
 
-RUN mkdir /var/run/sshd
+RUN mkdir /var/run/sshd /var/packer
 RUN adduser --quiet jenkins
 RUN echo "jenkins:jenkins" | chpasswd
 
+RUN chown -R jenkins /var/packer
+
 USER jenkins
-RUN mkdir /var/packer /home/jenkins/.ssh
+
+RUN mkdir /home/jenkins/.ssh
 
 RUN cd /var/packer && \
     wget https://releases.hashicorp.com/packer/0.12.1/packer_0.12.1_linux_amd64.zip && \
