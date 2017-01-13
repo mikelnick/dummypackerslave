@@ -21,7 +21,7 @@ RUN cd /var/packer && \
 
 RUN touch /home/jenkins/.ssh/known_hosts
 
-RUN ssh-keyscan github.com/lvtech >> /home/jenkins/.ssh/known_hosts
+RUN ssh-keyscan github.com >> /home/jenkins/.ssh/known_hosts
 
 EXPOSE 22
 
