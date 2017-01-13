@@ -26,4 +26,6 @@ ENV PATH /var/packer:$PATH
 
 EXPOSE 22
 
+RUN chown -R dockerslave /etc/ssh
+
 USER dockerslave
